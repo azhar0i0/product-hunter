@@ -1,10 +1,8 @@
-# Product Hunter
+# Setup Guide
 
-Finds products that already sell on eBay AU and UK, matches each one to a cheap
-AliExpress supplier, keeps only the ones that make 50%+ ROI, and writes them
-into your Google Sheet. Runs by itself once a day, for free.
+Step-by-step setup for [Product Hunter](README.md). Follow it once, top to
+bottom, and the bot runs itself from then on.
 
----
 
 ## What you need
 
@@ -30,6 +28,10 @@ This gives the script permission to write into your sheet.
 
 1. Go to [console.cloud.google.com](https://console.cloud.google.com) → **New Project** → name it `hunter` → Create.
 2. In the search bar type **Google Sheets API** → click it → **Enable**.
+   Then do the same for **Google Drive API**. You need **both**.
+   > The script finds your sheet *by name*, and searching by name is a Drive
+   > operation. With Sheets alone you get a `403 ... Drive API has not been used`
+   > error that looks like a sharing problem but is not.
 3. Left menu → **Credentials** → **Create credentials** → **Service account**.
    - Name it `hunter-bot` → Create → Done.
 4. Click the service account you just made → **Keys** tab → **Add key** → **Create new key** → **JSON** → Create.
@@ -121,25 +123,7 @@ everything already delivered. Don't delete that tab. To start fresh, clear it.
 
 ---
 
-## Check it still works
+## That's it
 
-```
-pip install -r requirements.txt
-python selftest.py
-```
-
-47 checks, no internet needed. If they all pass, the logic is fine and any
-problem is with eBay's page layout, not your setup.
-
----
-
-## Two honest warnings
-
-**1. This will break sometimes.** eBay and AliExpress change their page layout
-every few months. When they do, the free scraper stops finding things and you
-switch to `SOURCE_MODE = "apify"` until it's fixed. That's normal, not a bug.
-
-**2. 100 per day drops off.** Week one pulls from a 30-day backlog and hits 100
-easily. After that you're only catching genuinely new products, and it settles
-around 30–60 per day on two markets. To hold 100: add more `SEARCH_TERMS`, or add
-a US market entry to `MARKETS`. Tell your client this before they expect it.
+Setup is done. See the [main README](README.md) for how the bot works, what
+each config option does, and how to keep it running well.
