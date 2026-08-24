@@ -512,15 +512,25 @@ def open_sheet():
     if not raw:
         raise SystemExit("GOOGLE_CREDENTIALS is not set. See README step 3.")
     info = json.loads(raw)
-    creds = Credentials.from_service_account_info(
-        info, scopes=["https://www.googleapis.com/auth/spreadsheets"])
+    creds = Credentials.from_service_account_info(info, scopes=[
+        "https://www.googleapis.com/auth/spreadsheets",
+        # Opening a sheet BY NAME is a Drive lookup, not a Sheets call.
+        # Without this scope gspread.open() dies with a 403 that reads
+        # like a sharing problem. Read-only is enough -- all writing
+        # goes through the Sheets API above.
+        "https://www.googleapis.com/auth/drive.readonly",
+    ])
     gc = gspread.authorize(creds)
     try:
         sh = gc.open(C.SHEET_NAME)
-    except Exception:
+    except Exception as e:
         raise SystemExit(
-            f"Cannot open sheet '{C.SHEET_NAME}'. Did you share it with "
-            f"{info.get('client_email', 'your service account')}?")
+            f"Cannot open sheet '{C.SHEET_NAME}': {e}\n"
+            f"Check all three:\n"
+            f"  1. Sheet shared with {info.get('client_email', 'your service account')} as Editor\n"
+            f"  2. BOTH the Google Sheets API and Google Drive API enabled\n"
+            f"  3. Sheet name matches C.SHEET_NAME exactly")
+
     return sh
 
 
