@@ -1,0 +1,152 @@
+# One brand or banned word per line, lowercase.
+# Anything found in an eBay title gets thrown away.
+# Add to this list every time you spot something risky.
+
+# --- Tech ---
+apple
+iphone
+ipad
+airpods
+macbook
+samsung
+galaxy
+huawei
+xiaomi
+oppo
+vivo
+sony
+bose
+beats
+jbl
+sennheiser
+anker
+belkin
+logitech
+razer
+corsair
+google
+pixel
+nest
+amazon
+alexa
+echo
+fitbit
+garmin
+gopro
+dji
+microsoft
+xbox
+playstation
+nintendo
+switch
+sega
+lenovo
+asus
+acer
+dell
+hp
+msi
+intel
+amd
+nvidia
+
+# --- Fashion / sport ---
+nike
+adidas
+puma
+reebok
+gucci
+prada
+chanel
+versace
+burberry
+levis
+zara
+lululemon
+north face
+patagonia
+ray-ban
+rayban
+oakley
+supreme
+vans
+converse
+crocs
+ugg
+timberland
+under armour
+new balance
+
+# --- Toys / media / characters ---
+disney
+pixar
+marvel
+avengers
+spiderman
+batman
+superman
+star wars
+harry potter
+pokemon
+pikachu
+hello kitty
+sanrio
+lego
+barbie
+hot wheels
+mattel
+hasbro
+minecraft
+roblox
+fortnite
+peppa pig
+paw patrol
+frozen
+elsa
+mickey
+sonic
+mario
+squishmallow
+
+# --- Home / tools / auto ---
+dyson
+philips
+bosch
+makita
+dewalt
+stanley
+milwaukee
+ryobi
+karcher
+nespresso
+keurig
+tupperware
+yeti
+weber
+bmw
+mercedes
+audi
+toyota
+ford
+tesla
+honda
+harley
+
+# --- Beauty / other ---
+mac cosmetics
+maybelline
+loreal
+l'oreal
+nyx
+fenty
+dior
+chanel
+olaplex
+rolex
+casio
+seiko
+fossil
+pandora
+swarovski
+tiffany
+cartier

@@ -1,0 +1,10 @@
+# Google service-account keys -- NEVER commit these
+*.json
+credentials.json
+service-account*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
